@@ -12,7 +12,7 @@ function Bootstrap() {
       <Container>
         <Row className="text-left m-5 ">
           <Col xs={6} md={6} lg={6} sm={6}>
-            <h1>Hi,Hi,I'm Nupur Jariwala</h1>
+            <h1>Hi,Hi, I'm Nupur Jariwala</h1>
             <br />
             <h5 className="text-secondary">
               A Web developer from Surat .I convert custom
