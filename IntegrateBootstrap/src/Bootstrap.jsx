@@ -9,7 +9,7 @@ import { BiSupport } from "react-icons/bi";
 function Bootstrap() {
   return (
     <div>
-      <Container className="m-5" height="700px">
+      <Container className="m-auto" height="700px">
         <Row>
           <Col xs={6} md={6} lg={6} sm={6} className="mt-5">
             <h1>Hi,Hi, I'm Nupur Jariwala</h1>
