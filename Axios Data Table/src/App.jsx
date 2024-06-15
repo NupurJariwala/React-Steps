@@ -1,10 +1,9 @@
 import "./App.css";
-import Homepage from "./Homepage";
-
+import AllRoutes from "./Components/AllRoutes";
 function App() {
   return (
     <>
-      <Homepage />
+      <AllRoutes />
     </>
   );
 }

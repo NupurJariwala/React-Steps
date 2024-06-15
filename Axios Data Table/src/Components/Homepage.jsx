@@ -1,22 +1,17 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
+import Navigator from "./Navigator";
 
 function Homepage() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   const [productData, setproductData] = useState([]);
   const [filter, setFilter] = useState(null);
   const [sort, setSort] = useState(null);
   const [page, setPage] = useState(1);
   const [search, setaSearch] = useState("");
+
   const FetchProduct = () => {
     axios
-      .get("  http://localhost:8000/product", {
+      .get("http://localhost:8000/product", {
         params: {
           category: filter,
           _sort: "price",
@@ -32,28 +27,20 @@ function Homepage() {
 
   useEffect(() => {
     FetchProduct();
-  }, [filter, sort, page, search]);
+  }, [filter, sort, page, search, productData]);
+
+  const handleClick = (id) => {
+    axios
+      .delete(`http://localhost:8000/product/${id}`)
+      .then(() => alert("deleted"))
+      .catch((err) => console.log(err));
+  };
   return (
     <div>
       <h1>Homepage</h1>
-      <Button variant="primary" onClick={handleShow}>
-        Post Form
-      </Button>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-      <button>Delete Items</button>
+
+      <Navigator />
+
       <br />
       <input
         type="text"
@@ -101,6 +88,7 @@ function Homepage() {
             <h3>{el.title}</h3>
             <p>{el.price}</p>
             <p>{el.category}</p>
+            <button onClick={() => handleClick(el.id)}>Delete Items</button>
           </div>
         ))}
       </div>
