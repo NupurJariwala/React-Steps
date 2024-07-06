@@ -7,7 +7,7 @@ const Patch = () => {
   const [price, setPrice] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    const id = 7;
+    const id = { id };
     axios
       .patch(`http://localhost:8000/product/${id}`, {
         price,

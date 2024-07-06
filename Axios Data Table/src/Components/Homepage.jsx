@@ -7,7 +7,7 @@ function Homepage() {
   const [filter, setFilter] = useState(null);
   const [sort, setSort] = useState(null);
   const [page, setPage] = useState(1);
-  const [search, setaSearch] = useState("");
+  const [search, setSearch] = useState("");
 
   const FetchProduct = () => {
     axios
@@ -29,7 +29,7 @@ function Homepage() {
     FetchProduct();
   }, [filter, sort, page, search, productData]);
 
-  const handleClick = (id) => {
+  const handleDelete = (id) => {
     axios
       .delete(`http://localhost:8000/product/${id}`)
       .then(() => alert("deleted"))
@@ -44,7 +44,7 @@ function Homepage() {
       <br />
       <input
         type="text"
-        onChange={(e) => setaSearch(e.target.value)}
+        onChange={(e) => setSearch(e.target.value)}
         placeholder="search"
       />
       <button disabled={page == 1} onClick={() => setPage(page - 1)}>
@@ -88,7 +88,7 @@ function Homepage() {
             <h3>{el.title}</h3>
             <p>{el.price}</p>
             <p>{el.category}</p>
-            <button onClick={() => handleClick(el.id)}>Delete Items</button>
+            <button onClick={() => handleDelete(el.id)}>Delete Items</button>
           </div>
         ))}
       </div>
