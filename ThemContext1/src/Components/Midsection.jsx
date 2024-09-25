@@ -1,10 +1,9 @@
-import React from "react";
-
 function Midsection() {
   return (
     <div>
-      Lorem ipsum is placeholder text commonly used in the graphic, print, and
-      publishing industries for previewing layouts and visual mockups.
+      The Navbar component dynamically updates the theme and user login status
+      based on the values stored in ThemeContex and AuthContex, and allows the
+      user to login or logout by clicking the buttons.
     </div>
   );
 }

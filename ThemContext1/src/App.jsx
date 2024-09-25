@@ -10,7 +10,7 @@ function App() {
     <>
       <div
         style={{
-          backgroundColor: theme === "light" ? "white" : "black",
+          backgroundColor: theme === "light" ? "white" : "gray",
           color: theme === "light" ? "black" : "white",
         }}
       >
