@@ -20,14 +20,6 @@ export const Navbar = () => {
       path: "/product",
       title: "Product",
     },
-    {
-      path: "/description",
-      title: "Description",
-    },
-    {
-      path: "/privateroute",
-      title: "PrivateRoute",
-    },
   ];
   return (
     <div
